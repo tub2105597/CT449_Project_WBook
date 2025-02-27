@@ -1,0 +1,38 @@
+{
+    "routeMessages": {
+        "notFound": "Không tìm thấy trang",
+        "unauthorized": "Không có quyền truy cập",
+        "forbidden": "Không có quyền truy cập",
+        "internalServerError": "Lỗi máy chủ",
+        "badRequest": "Yêu cầu không hợp lệ",
+        "methodNotAllowed": "Phương thức không được phép",
+        "notAcceptable": "Không chấp nhận",
+        "conflict": "Xung đột",
+        "gone": "Đã mất",
+        "lengthRequired": "Yêu cầu chiều dài",
+        "preconditionFailed": "Điều kiện trước không thành công",
+        "requestEntityTooLarge": "Yêu cầu thực thể quá lớn",
+        "requestUriTooLong": "Yêu cầu URI quá dài",
+        "unsupportedMediaType": "Loại phương tiện không được hỗ trợ",
+        "requestedRangeNotSatisfiable": "Phạm vi yêu cầu không thỏa mãn"
+    },
+    "globalHandlerMessage": {
+        "duplicatedKey": "Trùng lặp giá trị khóa: {{duplicatedField}}. Vui lòng sử dụng giá trị khác",
+        "duplicatedEmail": "Email {{duplicatedValue}} đã được sử dụng. Vui lòng sử dụng email khác",
+        "invalidField": "Giá trị không hợp lệ {{field}}: {{value}}"
+    },
+    "productMessages": {
+        "requiredName": "Tên sản phẩm không được để trống",
+        "minlengthName": "Tên sản phẩm phải có ít nhất {{minlength}} ký tự",
+        "maxlengthName": "Tên sản phẩm không được quá {{maxlength}} ký tự",
+        "requiredPrice": "Giá sản phẩm không được để trống",
+        "minPrice": "Giá sản phẩm không được nhỏ hơn {{min}}",
+        "requiredStockQuantity": "Số lượng hàng không được để trống",
+        "minStockQuantity": "Số lượng hàng không được nhỏ hơn {{min}}",
+        "requiedPublishYear": "Năm xuất bản không được để trống",
+        "minPublishYear": "Năm xuất bản không được nhỏ hơn {{min}}",
+        "requiredPublisher": "Nhà xuất bản không được để trống",
+        "requiredCreatedBy": "Người tạo sản phẩm không được để trống",
+        "productNotFound": "Không tìm thấy sản phẩm"
+    }
+}
