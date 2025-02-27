@@ -1,0 +1,32 @@
+{
+  "name": "wbook",
+  "version": "1.0.0",
+  "description": "Project about website to borrow book - WBook (Web Application Development - CTU)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "NODE_ENV=development nodemon server.js",
+    "start:prod": "NODE_ENV=production node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tub2105597/CT449_Project_WBook.git"
+  },
+  "author": "Nguyen Thi Cam Tu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tub2105597/CT449_Project_WBook/issues"
+  },
+  "homepage": "https://github.com/tub2105597/CT449_Project_WBook#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.5.2"
+  }
+}
