@@ -1,36 +1,24 @@
 {
-  "name": "wbook",
+  "name": "wbook-backend",
   "version": "1.0.0",
-  "description": "Project about website to borrow book - WBook (Web Application Development - CTU)",
+  "description": "Project Web application development - Can Tho University",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start:dev": "NODE_ENV=development nodemon server.js",
-    "start:prod": "NODE_ENV=production node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tub2105597/CT449_Project_WBook.git"
+    "start": "node server.js"
   },
   "author": "Nguyen Thi Cam Tu",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tub2105597/CT449_Project_WBook/issues"
-  },
-  "homepage": "https://github.com/tub2105597/CT449_Project_WBook#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "mongodb": "^6.13.1",
-    "mongoose": "^8.11.0",
-    "morgan": "^1.10.0",
-    "slugify": "^1.6.6"
+    "mongodb": "^6.13.0"
   },
   "devDependencies": {
-    "eslint": "^9.21.0",
-    "eslint-config-prettier": "^10.0.2",
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "eslint-config-prettier": "^10.0.1",
+    "globals": "^15.14.0",
     "nodemon": "^3.1.9",
-    "prettier": "^3.5.2"
+    "prettier": "^3.4.2"
   }
 }

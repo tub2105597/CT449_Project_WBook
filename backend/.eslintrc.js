@@ -1,13 +1,11 @@
-const e = require("cors");
-
 module.exports = {
     env: {
         node: true,
         commonjs: true,
-        es2021: true,
+        es2021: true
     },
     extends: [
-        "eslint:recommended",
-        'prettier',
+        'eslint:recommended',
+        'prettier'
     ],
-}
+};
