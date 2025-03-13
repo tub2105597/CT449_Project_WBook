@@ -1,31 +1,37 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
-const ApiError = require('./app/api-error');
+const ApiError = require('./app/utils/error.util');
+const { routeMessage } = require('./app/languages')
+
+const authRouter = require('./app/routes/auth.route');
+const userRouter = require('./app/routes/user.route');
 
 const app = express();
-const BooksRouter = require('./app/routes/book.route');
 
-app.use(cors());
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URI,
+}));
+console.log(`Allow CORS: ${process.env.CLIENT_URI}`);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(`${__dirname}/public`));
 
-app.use('/api/books', BooksRouter);
+//Routers
+app.use('/api/auth', authRouter);
+app.use('/api/user', userRouter);
 
-//handle 404 response
-app.use((req, res, next) => {
-    return next(new ApiError(404, 'Resource not Found'));
-});
+// Undefined Routes
+app.use(('*', (req, res, next) => {
+    return next(new ApiError(routeMessage.notFound.replace('{{originalUrl}}', req.originalUrl), 404));
+}
+));
 
-//handle errors
-app.use((err, req, res, next) => {
-    return res.status(err.statusCode || 500).json({
-        message: err.message || 'Internal Server Error',
-    });
-});
 
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to contact book application.' });
-});
+//handle Errors
+
 
 module.exports = app;

@@ -1,19 +1,24 @@
+const mongoose = require('mongoose');
+require('dotenv').config({ path: 'config.env' });
+
 const app = require('./app');
-const config = require('./app/config');
-const MonfoDB = require('./app/utils/mongodb.util');
 
 async function startServer() {
     try {
-        await MonfoDB.connect(config.db.uri);
+
+        const { PORT, MONGODB_URI } = process.env;
+
+        //Connect to the database
+        await mongoose.connect(MONGODB_URI);
         console.log('Connected to the database');
 
-        const PORT = config.app.port;
+        // App listen
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
     } catch (error) {
-        console.log('Cannot connect to the database', error);
-        process.exit();
+        console.log('There is some internal error', error);
+        process.exit(1);
     }
 }
 

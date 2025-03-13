@@ -1,0 +1,109 @@
+{
+    "routeMessage": {
+        "notFound": "Không tìm thấy đường dẫn {{originalUrl}}"
+    },
+    "globalHandlerMessage": {
+        "invalidField": "Giá trị Không hợp lệ: {{field}}: {{value}}"
+    },
+    "userMessage": {
+        "requiredCode": "Mã độc giả không được để trống",
+        "requiredFirstName": "Họ lót không được để trống",
+        "minLengthFirstName": "Họ lót phải có ít nhất {{minLength}} ký tự",
+        "maxLengthFirstName": "Họ lót không được quá {{maxLength}} ký tự",
+        "requiredLastName": "Tên không được để trống",
+        "minLengthLastName": "Tên phải có ít nhất {{minLength}} ký tự",
+        "maxLengthLastName": "Tên không được quá {{maxLength}} ký tự",
+        "requiredBirthday": "Ngày sinh không được để trống",
+        "invalidBirthday": "Ngày sinh không hợp lệ",
+        "requiredGender": "Giới tính không được để trống",
+        "invalidGender": "Giới tính không hợp lệ",
+        "requiredAddress": "Địa chỉ không được để trống",
+        "minLengthAddress": "Địa chỉ phải có ít nhất {{minLength}} ký tự",
+        "maxLengthAddress": "Địa chỉ không được quá {{maxLength}} ký tự",
+        "requiredPhone": "Số điện thoại không được để trống",
+        "invalidPhone": "Số điện thoại không hợp lệ",
+        "requiredPassword": "Mật khẩu không được để trống",
+        "minLengthPassword": "Mật khẩu phải có ít nhất {{minLength}} ký tự",
+        "maxLengthPassword": "Mật khẩu không được quá {{maxLength}} ký tự",
+        "invalidPassword": "Mật khẩu không hợp lệ",
+        "requiredConfirmPassword": "Xác nhận mật khẩu không được để trống",
+        "invalidConfirmPassword": "Xác nhận mật khẩu không hợp lệ",
+        "notMatchPassword": "Mật khẩu xác nhận không trùng khớp"
+    },
+    "authMessage": {
+        "signUpSuccess": "Đăng ký thành công",
+        "signUpFailed": "Đăng ký thất bại",
+        "LogInSuccess": "Đăng nhập thành công",
+        "LogInFailed": "Đăng nhập thất bại",
+        "LogOutSuccess": "Đăng xuất thành công",
+        "LogOutFailed": "Đăng xuất thất bại",
+        "emptyLoginInfo": "Thông tin đăng nhập không được để trống",
+        "invalidLoginInfo": "Thông tin đăng nhập không hợp lệ",
+        "emptySignUpInfo": "Thông tin đăng ký không được để trống",
+        "invalidSignUpInfo": "Thông tin đăng ký không hợp lệ",
+        "userNotFound": "Không tìm thấy người dùng"
+    },
+    "bookMessage": {
+        "requiredCode": "Mã sách không được để trống",
+        "requiredName": "Tên sách không được để trống",
+        "minLengthName": "Tên sách phải có ít nhất {{minLength}} ký tự",
+        "requiredPrice": "Giá sách không được để trống",
+        "minPrice": "Giá sách phải lớn hơn {{min}}",
+        "requiredQuantity": "Số lượng sách không được để trống",
+        "minQuantity": "Số lượng sách phải lớn hơn {{min}}",
+        "requiredYear": "Năm xuất bản không được để trống",
+        "minYear": "Năm xuất bản phải lớn hơn {{min}}",
+        "maxYear": "Năm xuất bản không quá {{max}}",
+        "requiredPublisher": "Mã nhà xuất bản không được để trống",
+        "requiredCategory": "Mã thể loại không được để trống",
+        "requiredAuthor": "Mã tác giả không được để trống",
+        "requiredDescription": "Mô tả không được để trống",
+        "minLengthDescription": "Mô tả phải có ít nhất {{minLength}} ký tự",
+        "requiredCreator": "Mã người tạo không được để trống"
+    },
+    "publisherMessage": {
+        "requiredCode": "Mã nhà xuất bản không được để trống",
+        "requiredName": "Tên nhà xuất bản không được để trống",
+        "minLengthName": "Tên nhà xuất bản phải có ít nhất {{minLength}} ký tự",
+        "requiredAddress": "Địa chỉ không được để trống",
+        "minLengthAddress": "Địa chỉ phải có ít nhất {{minLength}} ký tự"
+    },
+    "staffMessage": {
+        "requiredCode": "Mã nhân viên không được để trống",
+        "requiredName": "Tên nhân viên không được để trống",
+        "minLengthName": "Tên nhân viên phải có ít nhất {{minLength}} ký tự",
+        "maxLengthName": "Tên nhân viên không được quá {{maxLength}} ký tự",
+        "requiredPassword": "Mật khẩu không được để trống",
+        "minLengthPassword": "Mật khẩu phải có ít nhất {{minLength}} ký tự",
+        "maxLengthPassword": "Mật khẩu không được quá {{maxLength}} ký tự",
+        "requiredRole": "Vai trò không được để trống",
+        "requiredAddress": "Địa chỉ không được để trống",
+        "requiredPhone": "Số điện thoại không được để trống",
+        "invalidPhone": "Số điện thoại không hợp lệ"
+    },
+    "imageMessage": {
+        "requiredName": "Tên ảnh không được để trống",
+        "requiredData": "Dữ liệu ảnh không được để trống"
+    },
+    "borrowingRecordMessage": {
+        "requiredUserID": "Mã người dùng không được để trống",
+        "requiredBookID": "Mã sách không được để trống",
+        "requiredStaffID": "Mã nhân viên không được để trống",
+        "requiredBorrowedDate": "Ngày mượn không được để trống",
+        "requiredDueDate": "Ngày trả không được để trống",
+        "minDueDate": "Ngày trả phải sau ngày mượn ít nhất {{min}} ngày",
+        "maxDueDate": "Ngày trả không quá {{max}} ngày"
+    },
+    "authorMessage": {
+        "requiredCode": "Mã tác giả không được để trống",
+        "requiredName": "Tên tác giả không được để trống",
+        "minLengthName": "Tên tác giả phải có ít nhất {{minLength}} ký tự",
+        "notFound": "Không tìm thấy tác giả"
+    },
+    "categoryMessage": {
+        "requiredCode": "Mã thể loại không được để trống",
+        "requiredName": "Tên thể loại không được để trống",
+        "minLengthName": "Tên thể loại phải có ít nhất {{minLength}} ký tự",
+        "notFound": "Không tìm thấy thể loại"
+    }
+}
