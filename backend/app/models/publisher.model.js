@@ -4,12 +4,6 @@ const { publisherMessage } = require('../languages');
 
 const publisherSchema = mongoose.Schema(
     {
-        maNXB: {
-            type: String,
-            required: [true, publisherMessage.requiredCode],
-            unique: true,
-            trim: true,
-        },
         tenNXB: {
             type: String,
             required: [true, publisherMessage.requiredName],

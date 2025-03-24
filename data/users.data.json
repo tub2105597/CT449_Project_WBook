@@ -1,0 +1,57 @@
+[
+    {
+        "matKhau": "$2b$10$7qM0N7B9d3pN5fh0LnCfBe4O0IvTV92e59V.BY7q6oB.Nj5jP7v5q",
+        "xacNhanMatKhau": "$2b$10$7qM0N7B9d3pN5fh0LnCfBe4O0IvTV92e59V.BY7q6oB.Nj5jP7v5q",
+        "hoLot": "Nguyen Van",
+        "ten": "A",
+        "ngaySinh": "1995-05-15",
+        "phai": "Nam",
+        "diaChi": "123 Le Loi, Quan 1, TP HCM",
+        "soDienThoai": "0987654321",
+        "kichHoat": true
+    },
+    {
+        "matKhau": "$2b$10$V1G1F1fSBFZoHbfG2aKUIeT6LwLOUizOpNzzL5EyZuF90cDYUuJO6",
+        "xacNhanMatKhau": "$2b$10$V1G1F1fSBFZoHbfG2aKUIeT6LwLOUizOpNzzL5EyZuF90cDYUuJO6",
+        "hoLot": "Le Thi",
+        "ten": "B",
+        "ngaySinh": "2000-08-21",
+        "phai": "Nữ",
+        "diaChi": "456 Tran Hung Dao, Quan 5, TP HCM",
+        "soDienThoai": "0978123456",
+        "kichHoat": true
+    },
+    {
+        "matKhau": "$2b$10$9RTqRUzU8f9k9s/FzRTkiuIoMHHFxGGsPq/HH/cQfH1JXFSO6Tp2K",
+        "xacNhanMatKhau": "$2b$10$9RTqRUzU8f9k9s/FzRTkiuIoMHHFxGGsPq/HH/cQfH1JXFSO6Tp2K",
+        "hoLot": "Tran Van",
+        "ten": "C",
+        "ngaySinh": "1992-12-30",
+        "phai": "Nam",
+        "diaChi": "789 Nguyen Trai, Quan 3, TP HCM",
+        "soDienThoai": "0912345678",
+        "kichHoat": true
+    },
+    {
+        "matKhau": "$2b$10$wJ65sI7QxFiBqMje08tUyeF6TpHTVfLdF9F7KmHqT/HlW1zXCJ8zq",
+        "xacNhanMatKhau": "$2b$10$wJ65sI7QxFiBqMje08tUyeF6TpHTVfLdF9F7KmHqT/HlW1zXCJ8zq",
+        "hoLot": "Pham Thi",
+        "ten": "D",
+        "ngaySinh": "1988-04-10",
+        "phai": "Nữ",
+        "diaChi": "567 Le Thanh Ton, Quan 1, TP HCM",
+        "soDienThoai": "0934567890",
+        "kichHoat": false
+    },
+    {
+        "matKhau": "$2b$10$T3Y2H/TyFBQY8KzLZqN53.PUXIDY.TWAW2b/FN6BX1vCWnQoEcl5O",
+        "xacNhanMatKhau": "$2b$10$T3Y2H/TyFBQY8KzLZqN53.PUXIDY.TWAW2b/FN6BX1vCWnQoEcl5O",
+        "hoLot": "Hoang Minh",
+        "ten": "E",
+        "ngaySinh": "1997-07-07",
+        "phai": "Nam",
+        "diaChi": "890 Cach Mang Thang 8, Quan 10, TP HCM",
+        "soDienThoai": "0901234567",
+        "kichHoat": true
+    }
+]

@@ -1,13 +1,13 @@
-const ApiError = required('../utils/error.util');
-const MongooseQuery = required('../utils/query.util');
-const { filterPayload } = required('../utils/extract.util');
-const catchAsync = required('../utils/catchAsync.util');
-const { publisherMessage } = required('../languages');
+const ApiError = require('../utils/error.util');
+const MongooseQuery = require('../utils/query.util');
+const { filterPayload } = require('../utils/extract.util');
+const catchAsync = require('../utils/catchAsync.util');
+const { publisherMessage } = require('../languages');
 
-const Publisher = required('../models/publisher.model');
+const Publisher = require('../models/publisher.model');
 
 exports.getPublisher = catchAsync(async (req, res, next) => {
-    const publisher = await Publisher.findById(req.publisher.id);
+    const publisher = await Publisher.findById(req.params.id);
 
     res.status(200).json({
         status: 'success',
@@ -17,7 +17,6 @@ exports.getPublisher = catchAsync(async (req, res, next) => {
 
 exports.getAllPublishers = catchAsync(async (req, res, next) => {
     const mongooseQuery = new MongooseQuery(Publisher.find(), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
 
     const publishers = await mongooseQuery.query;
 
@@ -28,6 +27,8 @@ exports.getAllPublishers = catchAsync(async (req, res, next) => {
 });
 
 exports.createPublisher = catchAsync(async (req, res, next) => {
+    console.log('publisher: ', req.body);
+
     const publisher = await Publisher.create(req.body);
 
     res.status(201).json({
@@ -37,7 +38,7 @@ exports.createPublisher = catchAsync(async (req, res, next) => {
 });
 
 exports.updatePublisher = catchAsync(async (req, res, next) => {
-    const publisher = await Publisher.findByIdAndUpdate(req.publisher.id, { ...req.body }, {
+    const publisher = await Publisher.findByIdAndUpdate(req.params.id, { ...req.body }, {
         new: true,
         runValidators: true,
     });
@@ -49,7 +50,7 @@ exports.updatePublisher = catchAsync(async (req, res, next) => {
 });
 
 exports.deletePublisher = catchAsync(async (req, res, next) => {
-    await Publisher.findByIdAndDelete(req.publisher.id);
+    await Publisher.findByIdAndDelete(req.params.id);
 
     res.status(204).json({
         status: 'success',
@@ -58,8 +59,7 @@ exports.deletePublisher = catchAsync(async (req, res, next) => {
 });
 
 exports.getPublisherBooks = catchAsync(async (req, res, next) => {
-    const mongooseQuery = new MongooseQuery(Publisher.findById(req.publisher.id).populate('books'), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
+    const mongooseQuery = new MongooseQuery(Publisher.findById(req.params.id).populate('books'), { ...req.query });
 
     const publisher = await mongooseQuery.query;
 

@@ -21,7 +21,6 @@ exports.getAuthor = catchAsync(async (req, res, next) => {
 
 exports.getAllAuthors = catchAsync(async (req, res, next) => {
     const mongooseQuery = new MongooseQuery(Author.find(), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
 
     const authors = await mongooseQuery.query;
 

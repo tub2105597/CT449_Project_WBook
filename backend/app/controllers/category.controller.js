@@ -8,13 +8,25 @@ const Category = require('../models/category.model');
 
 exports.getAllCategories = catchAsync(async (req, res, next) => {
     const mongooseQuery = new MongooseQuery(Category.find(), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
 
     const categories = await mongooseQuery.query;
 
     res.status(200).json({
         status: 'success',
         data: { categories },
+    });
+});
+
+exports.getCategory = catchAsync(async (req, res, next) => {
+    const category = await Category.findById(req.params.id);
+
+    if (!category) {
+        return next(new ApiError(404, categoryMessage.notFound));
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: { category },
     });
 });
 
@@ -49,10 +61,6 @@ exports.updateCategory = catchAsync(async (req, res, next) => {
 exports.deleteCategory = catchAsync(async (req, res, next) => {
     const category = await Category.findByIdAndDelete(req.params.id);
 
-    if (!category) {
-        return next(new ApiError(404, categoryMessage.notFound));
-    }
-
     res.status(204).json({
         status: 'success',
         data: null,
@@ -62,7 +70,6 @@ exports.deleteCategory = catchAsync(async (req, res, next) => {
 exports.getCategoryBooks = catchAsync(async (req, res, next) => {
     const mongooseQuery = new MongooseQuery(Category.findById(req.params.id)
         .populate('books'), { ...req.query });
-    mongooseQuery.filter().sort().paginate();
 
     const category = await mongooseQuery.query;
 

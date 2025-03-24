@@ -6,12 +6,6 @@ const { userMessage } = require('../languages');
 
 const userSchema = mongoose.Schema(
     {
-        maDG: {
-            type: String,
-            required: [true, userMessage.requiredCode],
-            unique: true,
-            trim: true,
-        },
         matKhau: {
             type: String,
             required: [true, userMessage.requiredPassword],
@@ -57,7 +51,6 @@ const userSchema = mongoose.Schema(
         phai: {
             type: String,
             required: [true, userMessage.requiredGender],
-            enum: ['Nam', 'Nữ'],
         },
         diaChi: {
             type: String,
@@ -69,6 +62,7 @@ const userSchema = mongoose.Schema(
         soDienThoai: {
             type: String,
             required: [true, userMessage.requiredPhone],
+            unique: true,
             trim: true,
             validate: {
                 validator: function (value) {
@@ -79,8 +73,7 @@ const userSchema = mongoose.Schema(
         },
         kichHoat: {
             type: Boolean,
-            default: false,
-            select: false
+            default: true,
         }
     },
     {
@@ -108,11 +101,11 @@ userSchema.pre('save', async function (next) {
     next();
 });
 
-//Only allow user active login
-userSchema.pre(/^find/, function (next) {
-    this.find({ kichHoat: { $ne: false } });
-    next();
-});
+// //Only allow user active login
+// userSchema.pre(/^find/, function (next) {
+//     this.find({ kichHoat: { $ne: false } });
+//     next();
+// });
 
 
 const User = mongoose.model('DOCGIA', userSchema);

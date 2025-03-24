@@ -4,14 +4,10 @@ const { imageMessage } = require('../languages');
 
 const imageSchema = mongoose.Schema(
     {
-        tenHinh: {
+        duongDan: {
             type: String,
-            required: [true, imageMessage.requiredName],
-        },
-        duLieu: {
-            type: Buffer,
-            required: [true, imageMessage.requiredData],
-        },
+            required: [true, 'Đường dẫn không được để trống'],
+        }
     },
 );
 

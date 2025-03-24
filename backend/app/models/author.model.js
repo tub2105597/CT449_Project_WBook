@@ -4,13 +4,7 @@ const { authorMessage } = require('../languages');
 
 const authorSchema = mongoose.Schema(
     {
-        maTG: {
-            type: String,
-            required: [true, authorMessage.requiredCode],
-            unique: true,
-            trim: true,
-        },
-        butDanh: {
+        tenTG: {
             type: String,
             required: [true, authorMessage.requiredName],
             trim: true,

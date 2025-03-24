@@ -8,7 +8,7 @@ class MongooseQuery {
         let queryObject = { ...this.queryObject };
 
         //Remove sort, page, limur from filter
-        const removeFields = ['sort', 'page', 'limit'];
+        const excludedFields = ['sort', 'page', 'limit'];
         excludedFields.forEach((field) => delete queryObject[field]);
 
         this.query = this.query.find(queryObject);

@@ -4,12 +4,6 @@ const { categoryMessage } = require('../languages');
 
 const categorySchema = mongoose.Schema(
     {
-        maTL: {
-            type: String,
-            required: [true, categoryMessage.requiredCode],
-            unique: true,
-            trim: true,
-        },
         tenTL: {
             type: String,
             required: [true, categoryMessage.requiredName],

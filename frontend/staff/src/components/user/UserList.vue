@@ -1,0 +1,64 @@
+<template>
+    <div class="container bg-light d-flex justify-content-center"> 
+        <div class="page">
+            <div class="row mb-3">
+                <h3 class="col-6">Danh sách tài khoản độc giả</h3>
+                <div class="col-6">
+                    <router-link :to="{ name : 'user-add'}" class="btn btn-primary float-end create-btn">
+                        <i class="fas fa-plus"></i> Thêm độc giả mới
+                    </router-link>
+                </div>
+            </div>
+            <ul class="list-group list-group-numbered">
+                <div v-for="user in users" :key="user._id" class="m-1">
+                    <UserItem :user="user" />
+                </div>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<script setup>
+    import UserItem from './UserItem.vue';
+    import userService from '@/services/user.service';
+    import { ref, onBeforeMount } from 'vue';
+    import { useRoute } from 'vue-router';
+
+    const router  = useRoute();
+    const users = ref([]);
+
+    async function fetchUsers() {
+        try {
+            const response = await userService.getAllUsers(router.query);
+            if (response.status === 'success') {
+                users.value = JSON.parse(JSON.stringify(response.data.users));
+            } else {
+                users.value = [];
+            }
+        } catch (error) {
+            console.log('Lỗi khi lấy danh sách người dùng:', error);
+        }
+    }
+
+    onBeforeMount(async () => {
+        await fetchUsers();
+    });
+
+</script>
+
+<style scoped>
+    .page {
+        width: 100%;
+        max-width: 1000px;
+    }
+
+    .create-btn {
+        transform: scale3d(0.9, 0.9, 0.9);
+        transition: transform 0.3s;
+    }
+
+    .create-btn:hover {
+        transform: scale3d(1, 1, 1);
+        transition: all 0.3s;
+    }
+</style>

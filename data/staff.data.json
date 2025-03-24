@@ -1,0 +1,92 @@
+[
+    {
+        "maNV": "NV001",
+        "hoTen": "Nguyễn Văn A",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "quanTri",
+        "diaChi": "Hà Nội",
+        "soDienThoai": "0987654321",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV002",
+        "hoTen": "Trần Thị B",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Hồ Chí Minh",
+        "soDienThoai": "0978123456",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV003",
+        "hoTen": "Lê Văn C",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Đà Nẵng",
+        "soDienThoai": "0968456789",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV004",
+        "hoTen": "Phạm Thị D",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Cần Thơ",
+        "soDienThoai": "0956789012",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV005",
+        "hoTen": "Hoàng Văn E",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Hải Phòng",
+        "soDienThoai": "0945678901",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV006",
+        "hoTen": "Đinh Thị F",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Huế",
+        "soDienThoai": "0934567890",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV007",
+        "hoTen": "Bùi Văn G",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Nha Trang",
+        "soDienThoai": "0923456789",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV008",
+        "hoTen": "Ngô Thị H",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Vũng Tàu",
+        "soDienThoai": "0912345678",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV009",
+        "hoTen": "Trương Văn I",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Quảng Ninh",
+        "soDienThoai": "0901234567",
+        "kichHoat": true
+    },
+    {
+        "maNV": "NV010",
+        "hoTen": "Lý Thị K",
+        "matKhau": "$2b$10$IGHOw54OoZoiZ0Xe2PXrSeNcF4jHFuWuLVjXy51LGIvpzyV5xEkNG",
+        "vaiTro": "nhanVien",
+        "diaChi": "Thanh Hóa",
+        "soDienThoai": "0898765432",
+        "kichHoat": true
+    }
+]

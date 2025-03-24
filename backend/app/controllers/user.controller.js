@@ -6,6 +6,71 @@ const { userMessage } = require('../languages');
 
 const User = require('../models/user.model');
 
+exports.getAllUsers = catchAsync(async (req, res, next) => {
+    const mongooseQuery = new MongooseQuery(User.find(), { ...req.query });
+    // mongooseQuery.filter().sort().paginate();
+
+    const users = await mongooseQuery.query.select('-matKhau -xacNhanMatKhau');
+
+    res.status(200).json({
+        status: 'success',
+        results: users.length,
+        data: { users },
+    });
+});
+
+exports.getUser = catchAsync(async (req, res, next) => {
+    const user = await User.findById(req.params.id).select('-matKhau -xacNhanMatKhau');
+
+    if (!user) {
+        return next(new ApiError(userMessage.notFound, 404));
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: { user },
+    });
+});
+
+exports.createUser = catchAsync(async (req, res, next) => {
+    console.log('req.body: ', req.body);
+    const user = await User.create(req.body).select('-matKhau');
+    console.log('user: ', user);
+    res.status(201).json({
+        status: 'success',
+        data: { user },
+    });
+});
+
+exports.updateUser = catchAsync(async (req, res, next) => {
+    const user = await User.findByIdAndUpdate(req.params.id, { ...req.body }, {
+        new: true,
+        runValidators: true,
+    }).select('-matKhau -xacNhanMatKhau');
+
+    if (!user) {
+        return next(new ApiError(userMessage.notFound, 404));
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: { user },
+    });
+});
+
+exports.deleteUser = catchAsync(async (req, res, next) => {
+    const user = await User.findByIdAndDelete(req.params.id);
+
+    if (!user) {
+        return next(new ApiError(userMessage.notFound, 404));
+    }
+
+    res.status(204).json({
+        status: 'success',
+        data: null,
+    });
+});
+
 exports.getMe = catchAsync(async (req, res, next) => {
     const user = await User.findById(req.user.id).select('-password');
 

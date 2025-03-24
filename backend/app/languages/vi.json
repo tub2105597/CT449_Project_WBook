@@ -85,7 +85,7 @@
         "requiredName": "Tên ảnh không được để trống",
         "requiredData": "Dữ liệu ảnh không được để trống"
     },
-    "borrowingRecordMessage": {
+    "statusMessage": {
         "requiredUserID": "Mã người dùng không được để trống",
         "requiredBookID": "Mã sách không được để trống",
         "requiredStaffID": "Mã nhân viên không được để trống",

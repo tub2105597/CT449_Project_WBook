@@ -1,0 +1,82 @@
+[
+    {
+        "tenSach": "Dune",
+        "donGia": 250000,
+        "soQuyen": 5,
+        "namXuatBan": 1965,
+        "moTa": "Một tác phẩm khoa học viễn tưởng kinh điển về cuộc chiến giành quyền lực.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "1984",
+        "donGia": 180000,
+        "soQuyen": 3,
+        "namXuatBan": 1949,
+        "moTa": "Một tiểu thuyết dystopia kinh điển về thế giới bị kiểm soát chặt chẽ.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Foundation",
+        "donGia": 220000,
+        "soQuyen": 7,
+        "namXuatBan": 1951,
+        "moTa": "Một bộ truyện khoa học viễn tưởng về tương lai của đế chế thiên hà.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Sapiens: Lược sử loài người",
+        "donGia": 280000,
+        "soQuyen": 4,
+        "namXuatBan": 2011,
+        "moTa": "Câu chuyện về sự tiến hóa của loài người từ thời nguyên thủy đến hiện đại.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Guns, Germs, and Steel",
+        "donGia": 260000,
+        "soQuyen": 6,
+        "namXuatBan": 1997,
+        "moTa": "Giải thích sự phát triển của các nền văn minh trên thế giới.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "The Silk Roads",
+        "donGia": 270000,
+        "soQuyen": 2,
+        "namXuatBan": 2015,
+        "moTa": "Một cái nhìn mới về lịch sử thế giới thông qua Con đường tơ lụa.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Anna Karenina",
+        "donGia": 300000,
+        "soQuyen": 5,
+        "namXuatBan": 1877,
+        "moTa": "Một tiểu thuyết lãng mạn kinh điển về tình yêu và bi kịch.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Cuốn theo chiều gió",
+        "donGia": 320000,
+        "soQuyen": 8,
+        "namXuatBan": 1936,
+        "moTa": "Một câu chuyện tình yêu trong bối cảnh cuộc Nội chiến Mỹ.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Những người khốn khổ",
+        "donGia": 350000,
+        "soQuyen": 4,
+        "namXuatBan": 1862,
+        "moTa": "Một câu chuyện về công lý, tình yêu và lòng nhân ái.",
+        "hinhAnh": []
+    },
+    {
+        "tenSach": "Sherlock Holmes",
+        "donGia": 200000,
+        "soQuyen": 6,
+        "namXuatBan": 1887,
+        "moTa": "Bộ truyện trinh thám nổi tiếng với thám tử Sherlock Holmes.",
+        "hinhAnh": []
+    }
+]

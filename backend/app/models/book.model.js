@@ -4,12 +4,6 @@ const { bookMessage } = require('../languages');
 
 const bookSchema = mongoose.Schema(
     {
-        maSach: {
-            type: String,
-            required: [true, bookMessage.requiredCode],
-            unique: true,
-            trim: true,
-        },
         tenSach: {
             type: String,
             required: [true, bookMessage.requiredName],
@@ -24,7 +18,7 @@ const bookSchema = mongoose.Schema(
         soQuyen: {
             type: Number,
             required: [true, bookMessage.requiredQuantity],
-            min: [0, bookMessage.minQuantity.replace('{{min}}', '0')],
+            min: [1, bookMessage.minQuantity.replace('{{min}}', '1')],
         },
         namXuatBan: {
             type: Number,
@@ -34,37 +28,26 @@ const bookSchema = mongoose.Schema(
         },
         maNXB: {
             type: mongoose.Schema.ObjectId,
-            required: [true, bookMessage.requiredPublisher],
             ref: 'NHAXUATBAN',
+            required: [true, bookMessage.requiredPublisher],
         },
         maTG: {
-            type: [{ type: mongoose.Schema.ObjectId, ref: 'TACGIA' }],
+            type: mongoose.Schema.ObjectId,
+            ref: 'TACGIA',
+            required: [true, bookMessage.requiredAuthor],
         },
         maTL: {
-            type: [{ type: mongoose.Schema.ObjectId, ref: 'THELOAI' }],
+            type: mongoose.Schema.ObjectId,
+            ref: 'THELOAI',
             required: [true, bookMessage.requiredCategory],
         },
         moTa: {
             type: String,
             required: [true, bookMessage.requiredDescription],
             trim: true,
-            minlength: [10, bookMessage.minLengthDescription.replace('{{minLength}}', '10')],
         },
         hinhAnh: {
             type: [{ type: mongoose.Schema.ObjectId, ref: 'HINHANH' }],
-        },
-        ngayTao: {
-            type: Date,
-            default: Date.now,
-        },
-        ngayCapNhat: {
-            type: Date,
-            default: Date.now,
-        },
-        nguoiTao: {
-            type: mongoose.Schema.ObjectId,
-            required: [true, bookMessage.requiredCreator],
-            ref: 'NHANVIEN',
         },
     },
     {
