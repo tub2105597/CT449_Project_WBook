@@ -3,6 +3,8 @@ const MongooseQuery = require('../utils/query.util');
 const { filterPayload } = require('../utils/extract.util');
 const catchAsync = require('../utils/catchAsync.util');
 const { userMessage } = require('../languages');
+const mongoose = require('mongoose');
+
 
 const User = require('../models/user.model');
 
@@ -20,6 +22,7 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
+
     const user = await User.findById(req.params.id).select('-matKhau -xacNhanMatKhau');
 
     if (!user) {

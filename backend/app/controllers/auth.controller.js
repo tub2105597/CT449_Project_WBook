@@ -9,18 +9,6 @@ const { authMessage } = require('../languages');
 const User = require('../models/user.model');
 const Staff = require('../models/staff.model');
 
-exports.signup = catchAsync(async (req, res, next) => {
-    const user = await User.create(req.body);
-
-    user.kichHoat = true;
-    await user.save({ validateBeforeSave: false });
-
-    res.status(201).json({
-        status: 'success',
-        message: authMessage.signupSuccess,
-    });
-});
-
 exports.loginUser = catchAsync(async (req, res, next) => {
     const { soDienThoai, matKhau } = req.body;
 
@@ -40,13 +28,13 @@ exports.loginUser = catchAsync(async (req, res, next) => {
         message: authMessage.LogInSuccess,
         data: {
             soDienThoai: user.soDienThoai,
+            userId: user._id,
             vaiTro: user.vaiTro,
         },
     });
 });
 
 exports.loginStaff = catchAsync(async (req, res, next) => {
-    console.log(req.body);
     const { maNV, matKhau } = req.body;
 
     if (!maNV || !matKhau) {

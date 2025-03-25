@@ -19,9 +19,9 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: process.env.CLIENT_URI,
+    origin: process.env.CLIENT_URI.split(',').map(url => url.trim()),
 }));
-console.log(`Allow CORS: ${process.env.CLIENT_URI}`);
+console.log(`Allow CORS: ${process.env.CLIENT_URI.split(',').map(url => url.trim())}`);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

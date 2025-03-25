@@ -38,37 +38,33 @@ exports.getBook = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllBooks = catchAsync(async (req, res, next) => {
+
+    // Tạo điều kiện tìm kiếm nếu có query tên sách
+    let filter = {};
+    if (req.query.tenSach) {
+        filter.tenSach = { $regex: req.query.tenSach, $options: "i" }; // Tìm không phân biệt hoa thường
+    }
+
     const bookQuery = new MongooseQuery(
-        Book.find()
-            .populate({
-                path: 'maNXB',
-                select: '_id tenNXB' // Chỉ lấy tên nhà xuất bản
-            })
-            .populate({
-                path: 'maTG',
-                select: '_id tenTG' // Chỉ lấy tên tác giả
-            })
-            .populate({
-                path: 'maTL',
-                select: '_id tenTL' // Chỉ lấy tên thể loại
-            })
-            .populate({
-                path: 'hinhAnh',
-                select: 'duongDan' // Chỉ lấy đường dẫn hình ảnh
-            }),
+        Book.find(filter)
+            .populate({ path: "maNXB", select: "_id tenNXB" })
+            .populate({ path: "maTG", select: "_id tenTG" })
+            .populate({ path: "maTL", select: "_id tenTL" })
+            .populate({ path: "hinhAnh", select: "duongDan" }),
         { ...req.query }
     );
 
     const books = await bookQuery.query;
 
     res.status(200).json({
-        status: 'success',
+        status: "success",
         results: books.length,
         data: {
-            books
-        }
+            books,
+        },
     });
 });
+
 
 
 exports.createBook = catchAsync(async (req, res, next) => {
