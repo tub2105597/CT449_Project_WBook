@@ -38,28 +38,23 @@
             <i class="fa fa-pen"></i>
             </router-link>
         </li>
+        <li v-if="store.vaiTro === 'quanTri'">
+          <router-link to="/staff" class="nav-link py-3 px-2"
+            title="Mượn trả" data-bs-toggle="tooltip" data-bs-placement="right">
+            <i class="fa fa-clipboard-user"></i>
+          </router-link>
+        </li>
       </ul>
     </div>
 </div>
 </template>
 
-<script>
+<script setup>
 import { onMounted } from "vue";
 import { Tooltip } from "bootstrap";
+import { useUserStore } from "@/stores/user.store";
 
-export default {
-  setup() {
-    onMounted(() => {
-      // Lấy tất cả phần tử có tooltip
-      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-
-      // Khởi tạo Bootstrap Tooltip cho từng phần tử
-      tooltipTriggerList.forEach(el => {
-        new Tooltip(el);
-      });
-    });
-  }
-};
+const store = useUserStore(); // Gọi Pinia store đúng cách
 </script>
 
 

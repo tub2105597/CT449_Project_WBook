@@ -9,6 +9,16 @@
                     </router-link>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm theo tên sách" v-model="search" @keyup.enter="searchBook()">
+                        <button class="btn btn-outline-success" type="button" id="button-addon2" @click="searchBook()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <ul class="list-group list-group-numbered">
                 <div v-for="book in books" :key="book._id" class="m-1">
                     <BookItem :book="book" />
@@ -26,6 +36,7 @@ import BookService from '@/services/book.service';
 
 const router = useRoute();
 const books = ref([]);
+const search = ref('');
 
 async function fetchBooks() {
     try {
@@ -38,6 +49,15 @@ async function fetchBooks() {
     } catch (error) {
         console.log('Lỗi khi lấy danh sách thể loại:', error);
     }
+}
+
+async function searchBook() {
+    if(!search.value) {
+        await fetchBooks();
+        return;
+    }
+
+    books.value = books.value.filter(book => book.tenSach.toLowerCase().includes(search.value.toLowerCase()));
 }
 
 onBeforeMount(async () => {

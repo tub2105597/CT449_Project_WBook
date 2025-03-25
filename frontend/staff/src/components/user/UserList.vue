@@ -9,6 +9,14 @@
                     </router-link>
                 </div>
             </div>
+            <div class="col mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên người dùng hoặc số điện thoại" v-model="search" @keyup.enter="searchUsers()">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"  @click="searchUsers()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
             <ul class="list-group list-group-numbered">
                 <div v-for="user in users" :key="user._id" class="m-1">
                     <UserItem :user="user" />
@@ -26,6 +34,7 @@
 
     const router  = useRoute();
     const users = ref([]);
+    const search = ref('');
 
     async function fetchUsers() {
         try {
@@ -38,6 +47,17 @@
         } catch (error) {
             console.log('Lỗi khi lấy danh sách người dùng:', error);
         }
+    }
+
+    async function searchUsers() {
+        if(!search.value) {
+            await fetchUsers();
+            return;
+        }
+        users.value = users.value.filter(user => {
+            return user.hoLot.toLowerCase().includes(search.value.toLowerCase()) || user.ten.toLowerCase().includes(search.value.toLowerCase()) 
+            || user.soDienThoai.includes(search.value);
+        });
     }
 
     onBeforeMount(async () => {

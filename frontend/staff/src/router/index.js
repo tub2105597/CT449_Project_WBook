@@ -8,6 +8,7 @@ import publisherRoute from "@/router/publisher.route.js";
 import authorRoute from "@/router/author.route.js";
 import bookRoute from "@/router/book.route.js";
 import statusRoute from "@/router/status.route.js";
+import staffRoute from "./staff.route";
 
 //Another components
 import HomePage from "@/views/HomePage.vue";
@@ -36,7 +37,8 @@ const routes = [
     publisherRoute,
     authorRoute,
     bookRoute,
-    statusRoute
+    statusRoute,
+    staffRoute,
 ]
 
 const router = createRouter({

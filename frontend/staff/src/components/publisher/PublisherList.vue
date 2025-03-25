@@ -9,6 +9,14 @@
                     </router-link>
                 </div>
             </div>
+            <div class="col mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên nhà xuất bản" v-model="search" @keyup.enter="searchPublishers()">
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"  @click="searchPublishers()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
             <ul class="list-group list-group-numbered">
                 <PublisherItem v-for="publisher in publishers" :key="publisher.id" :publisher="publisher" />
             </ul>
@@ -24,6 +32,7 @@
 
     const router = useRoute();
     const publishers = ref([]);
+    const search = ref('');
 
     async function fetchPublishers() {
         try {
@@ -33,6 +42,15 @@
         } catch (error) {
             console.log(error);
         }
+    }
+    
+
+    async function searchPublishers() {
+        if(!search.value) {
+            await fetchPublishers();
+            return;
+        }
+        publishers.value = publishers.value.filter(publisher => publisher.tenNXB.toLowerCase().includes(search.value.toLowerCase()));
     }
 
     onBeforeMount(async () => {

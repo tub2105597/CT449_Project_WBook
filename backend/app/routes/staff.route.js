@@ -12,6 +12,9 @@ router.route('/')
     );
 
 router.route('/:id')
+    .get(
+        staffController.getStaff
+    )
     .patch(
         staffController.updateStaff
     )

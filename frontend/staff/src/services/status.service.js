@@ -15,6 +15,16 @@ class StatusService {
         }
     }
 
+    async searchStatuses(query) {
+        try {
+            const params = new URLSearchParams(query).toString();
+            const response = await this.api.json.get(`/?${params}`);
+            return response.data;
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async getStatus(id) {
         try {
             const response = await this.api.json.get(`/${id}`);

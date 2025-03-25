@@ -9,6 +9,14 @@
                     </router-link>
                 </div>
             </div>
+            <div class="col mb-3">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm theo tên người mượn" v-model="search" >
+                    <button class="btn btn-outline-success" type="button" id="button-addon2"  @click="searchStatuses()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -81,6 +89,7 @@ import Swal from 'sweetalert2';
 
 const statuses = ref([]);
 const loading = ref(false);
+const search = ref('');
 
 async function fetchStatuses() {
     try {
@@ -150,6 +159,19 @@ async function deleteStatus(id) {
             console.log('Lỗi khi xóa thông tin mượn sách:', error);
         }
     }
+}
+
+async function searchStatuses() {
+    if (!search.value) {
+        await fetchStatuses();
+        return;
+    }
+
+    statuses.value = statuses.value.filter(status => {
+        return status.maDG.hoLot.toLowerCase().includes(search.value.toLowerCase()) 
+            || status.maDG.ten.toLowerCase().includes(search.value.toLowerCase());
+    });
+    console.log('search', statuses.value);
 }
 
 onBeforeMount(async () => {

@@ -9,7 +9,12 @@
                     </router-link>
                 </div>
             </div>
-
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Nhập tên tác giả cần tìm kiếm" v-model="search" @input="searchAuthor()">
+                <button class="btn btn-outline-success" type="button" @click="searchAuthor()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
             <!-- Hiển thị danh sách tác giả dưới dạng bảng -->
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -64,6 +69,7 @@ const route = useRoute();
 const authors = ref([]);
 const currentPage = ref(1);
 const itemsPerPage = 10;
+const search = ref('');
 
 // Lấy danh sách tác giả
 async function fetchAuthors() {
@@ -102,6 +108,15 @@ const paginatedAuthors = computed(() => {
 const totalPages = computed(() => {
     return Math.ceil(authors.value.length / itemsPerPage);
 });
+
+function searchAuthor() {
+    const query = search.value.trim().toLowerCase();
+    if (query) {
+        authors.value = authors.value.filter(author => author.tenTG.toLowerCase().includes(query));
+    } else {
+        fetchAuthors();
+    }
+}
 
 onBeforeMount(fetchAuthors);
 </script>

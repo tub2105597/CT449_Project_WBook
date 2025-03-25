@@ -23,7 +23,6 @@ const staffSchema = new mongoose.Schema(
             type: String,
             required: [true, staffMessage.requiredPassword],
             minlength: [6, staffMessage.minLengthPassword.replace('{{minLength}}', '6')],
-            maxlength: [32, staffMessage.maxLengthPassword.replace('{{maxLength}}', '32')],
         },
         vaiTro: {
             type: String,

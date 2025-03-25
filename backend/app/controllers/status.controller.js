@@ -39,7 +39,21 @@ exports.getStatus = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllStatuses = catchAsync(async (req, res, next) => {
-    const statusesQuery = new MongooseQuery(Status.find({ ...req.query })
+    const { tenDG } = req.query;
+
+    console.log(req.params);
+
+    // Tạo điều kiện tìm kiếm nếu có `tenDG`
+    const filter = tenDG
+        ? {
+            $or: [
+                { 'maDG.hoLot': { $regex: tenDG, $options: 'i' } },  // Tìm trong hoLot
+                { 'maDG.ten': { $regex: tenDG, $options: 'i' } }      // Tìm trong ten
+            ]
+        }
+        : {}; // Nếu không có `tenDG`, không áp dụng bộ lọc
+
+    const statusesQuery = new MongooseQuery(Status.find(filter)
         .populate({
             path: 'maDG',
             select: '_id hoLot ten soDienThoai'
@@ -47,23 +61,22 @@ exports.getAllStatuses = catchAsync(async (req, res, next) => {
         .populate({
             path: 'maSach',
             select: '_id tenSach donGia hinhAnh',
-            populate: {  // Populate sâu hơn vào hinhAnh
+            populate: {
                 path: 'hinhAnh',
                 select: '_id duongDan'
             }
-        }),
+        })
     );
-
 
     const statuses = await statusesQuery.query;
 
     res.status(200).json({
         status: 'success',
-        data: {
-            statuses
-        }
+        data: { statuses }
     });
 });
+
+
 
 exports.createStatus = catchAsync(async (req, res, next) => {
     // Tìm id của user có trong 
