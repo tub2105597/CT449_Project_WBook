@@ -68,8 +68,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="hinhAnh" class="text-muted">Hình ảnh: </label>
-                        <div class="d-flex flex-wrap bg-white p-2 mb-2"
-                            style="border: 1px solid #ced4da; border-radius: 5px;">
+                        <div class="d-flex flex-wrap  p-2 mb-2">
                             <img v-for="(image, index) in previewImages" :key="index" :src="image" class="img-thumbnail"
                                 style="height: 150px; object-fit: cover; margin: 5px;" />
                         </div>

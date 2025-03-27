@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="col-5">
-                <div class="d-flex justify-content-end align-items-end gap-2 m-3" v-if="store.maNV != ''">
+                <div class="d-flex justify-content-end align-items-end gap-2 m-3" v-if="store.soDienThoai != ''">
                     <div class="d-flex align-items-center justify-content-center gap-2">
                         <router-link to="/profile" class="text-light text-decoration-none">{{ store.soDienThoai }}</router-link>
                     </div>

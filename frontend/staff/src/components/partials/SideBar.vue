@@ -40,7 +40,7 @@
         </li>
         <li v-if="store.vaiTro === 'quanTri'">
           <router-link to="/staff" class="nav-link py-3 px-2"
-            title="Mượn trả" data-bs-toggle="tooltip" data-bs-placement="right">
+            title="Nhân viên" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class="fa fa-clipboard-user"></i>
           </router-link>
         </li>

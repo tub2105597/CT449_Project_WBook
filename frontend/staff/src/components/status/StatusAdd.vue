@@ -57,7 +57,7 @@
             <div class="row">
                 <ul class="list-group list-group-numbered">
                     <div class="book-list">
-                        <div v-for="book in books" :key="book._id" class="">
+                        <div v-for="book in books" :key="book._id" class="mb-3">
                             <div class="row">
                                  <div class="col-2">
                                     <img :src="'http://127.0.0.1:8080' + book.hinhAnh[0].duongDan" alt="book" class="book-img" />
@@ -113,31 +113,6 @@ let status = ref({
 const showBookModal = ref(false);
 const selectedBooks = ref([]);
 
-
-
-// const StatusFormSchema = yup.object({
-//     tenSach: yup.string().required('Tên sách không được để trống'),
-//     maTL: yup.string()
-//         .matches(/^[0-9a-fA-F]{24}$/, 'Thể loại không hợp lệ')
-//         .required('Thể loại không được để trống'),
-//     maTG: yup.string()
-//         .matches(/^[0-9a-fA-F]{24}$/, 'Tác giả không hợp lệ')
-//         .required('Tác giả không được để trống'),
-//     maNXB: yup.string()
-//         .matches(/^[0-9a-fA-F]{24}$/, 'Nhà xuất bản không hợp lệ')
-//         .required('Nhà xuất bản không được để trống'),
-//     namXuatBan: yup.number()
-//         .required('Năm xuất bản không được để trống')
-//         .test('is-valid-year', 'Năm xuất bản không hợp lệ', value => {
-//             const currentYear = new Date().getFullYear();
-//             return value <= currentYear;
-//         }),
-//     soQuyen: yup.number().required('Số lượng không được để trống').min(0, 'Số lượng không được nhỏ hơn 0'),
-//     donGia: yup.number().required('Đơn giá không được để trống').min(0, 'Đơn giá không được nhỏ hơn 0'),
-//     moTa: yup.string().required('Mô tả không được để trống'),
-//     hinhAnh: yup.array().min(1, 'Hình ảnh không được để trống')
-// });
-
 const toggleSelection = (book) => {
     const index = selectedBooks.value.findIndex(selectedBook => selectedBook._id === book._id);
     if (index === -1) {
@@ -162,6 +137,17 @@ async function onSubmit() {
     if (!result.isConfirmed) return;
 
     loading.value = true;
+
+    // if(status.value.ngayMuon < new Date()) {
+    //     await Swal.fire({
+    //         title: 'Thất bại',
+    //         text: 'Mượn sách thất bại',
+    //         icon: 'error',
+    //         text: 'Ngày mượn không hợp lệ',
+    //         confirmButtonColor: '#198754'
+    //     });
+    //     return;
+    // }
 
     const payload = {
         maDG: status.value.maDG,
@@ -230,6 +216,7 @@ onBeforeMount(async () => {
 .page {
     width: 100%;
     max-width: 700px;
+    min-height: 600px;
 }
 
 .back-btn {

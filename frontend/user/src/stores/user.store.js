@@ -1,7 +1,6 @@
 import { ref, computed } from 'vue';
 import { defineStore } from 'pinia';
 import authService from '@/services/auth.service';
-import Swal from 'sweetalert2';
 
 export const useUserStore = defineStore('user', () => {
     const soDienThoai = ref('');
@@ -22,27 +21,13 @@ export const useUserStore = defineStore('user', () => {
             soDienThoai.value = '';
             userId.value = '';
             localStorage.removeItem('bookgo-user-isLogin');
-            await Swal.fire({
-                icon: 'error',
-                title: 'Đăng nhập thất bại',
-                text: error.message,
-                confirmButtonColor: '#dc3545',
-            });
         }
     }
 
     async function logout() {
-        try {
-            soDienThoai.value = '';
-            userId.value = '';
-            localStorage.removeItem('bookgo-user-isLogin');
-        } catch (error) {
-            await Swal.fire({
-                icon: 'error',
-                title: 'Đăng xuất thất bại',
-                confirmButtonColor: '#dc3545',
-            });
-        }
+        soDienThoai.value = '';
+        userId.value = '';
+        localStorage.removeItem('bookgo-user-isLogin');
     }
 
     return {

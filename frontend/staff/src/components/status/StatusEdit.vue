@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-group mb- d-flex gap-3">
                         <label for="giaHan" class="text-muted">Gia hạn sách: </label>
-                        <Field type="checkbox" name="giaHan" id="giaHan" class="form-check form-check-input" v-model="status.giaHan" />
+                        <input type="checkbox" name="giaHan" id="giaHan" class="form-check-input" v-model="status.giaHan" />
                     </div>
                     <div class="form-group mb-3">
                         <button type="submit" class="btn btn-lg btn-success update-btn float-end">Xác nhận</button>

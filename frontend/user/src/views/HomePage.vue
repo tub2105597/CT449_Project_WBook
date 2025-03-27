@@ -118,24 +118,17 @@ async function addStatus() {
     };
 
     const response = await statusService.addStatus(payload);
-    if (response) {
-        Swal.fire({
-            title: 'Mượn sách thành công',
-            icon: 'success',
-            confirmButtonColor: '#198754',
-        });
-        loading.value = false;
-        isDetail.value = false;
-        bookDetail.value = {};
-        router.push('/profile');
-    } else {
-        Swal.fire({
-            title: 'Mượn sách thất bại',
-            icon: 'error',
-            confirmButtonColor: '#dc3545',
-        });
-    }
-    console.log('Mượn sách:', bookDetail.value);
+    Swal.fire({
+        title: 'Mượn sách thành công',
+        text:'Hãy đến thư viện nhận sách sớm nhất',
+        icon: 'success',
+        confirmButtonColor: '#198754',
+    });
+    loading.value = false;
+    isDetail.value = false;
+    bookDetail.value = {};
+    router.push('/profile');
+    console.log('response: ' + response);
 }
 
 const searchBook = () => {

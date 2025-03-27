@@ -96,7 +96,13 @@ exports.createStatus = catchAsync(async (req, res, next) => {
     const book = await Book.findOne({ _id: req.body.maSach }).select('soQuyen');
 
     if (book.soQuyen <= 1) {
-        return next(new ApiError('Sách này đã hết quyển để mượn', 404));
+        return res.status(201).json({
+            data: {
+                status: 'failed',
+                message: 'Sách này đã hết'
+            }
+
+        });
     }
 
 

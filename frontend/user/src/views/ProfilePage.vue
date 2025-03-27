@@ -64,7 +64,17 @@ async function getStatuses() {
     const response = await statusService.getStatuses({maDG: store.userId});
     if(response.data.statuses) {
         borrowBook.value = response.data.statuses.filter(book => book.ngayTra === book.ngayMuon);
-        historyBook.value = response.data.statuses.filter(book => {book.ngayTra !== book.ngayMuon});
+        historyBook.value = response.data.statuses.filter(book => {
+            const ngayMuon = new Date(book.ngayMuon).getTime();
+            const ngayTra = new Date(book.ngayTra).getTime();
+            const thoiGianTraKhongGiaHan = ngayMuon + 7 * 24 * 60 * 60 * 1000;
+            const thoiGianTraGiaHan = ngayMuon + 14 * 24 * 60 * 60 * 1000;
+
+            return book.ngayTra && (
+                (ngayTra <= thoiGianTraKhongGiaHan && !book.giaHan) ||
+                (ngayTra <= thoiGianTraGiaHan && book.giaHan)
+            ) && (book.ngayTra !== book.ngayMuon);    
+        });
         overdueBook.value = response.data.statuses.filter(book => {
             const ngayMuon = new Date(book.ngayMuon).getTime();
             const ngayTra = new Date(book.ngayTra).getTime();

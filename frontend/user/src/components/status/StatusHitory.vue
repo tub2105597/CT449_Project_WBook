@@ -1,4 +1,5 @@
 <template>
+    <!-- <pre>{{ status }}</pre> -->
     <div class="text-success">
         <p class="fs-5 fw-bold">Lịch sử mượn sách</p>
         <div class="status-borrow">

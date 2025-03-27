@@ -64,6 +64,7 @@
 import { ref, computed, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import AuthorService from '@/services/author.service';
+import Swal from 'sweetalert2';
 
 const route = useRoute();
 const authors = ref([]);
@@ -87,11 +88,21 @@ async function fetchAuthors() {
 
 // Hàm xóa tác giả
 async function deleteAuthor(id) {
-    if (!confirm('Bạn có chắc muốn xóa tác giả này?')) return;
+    const result =await Swal.fire({
+        title: 'Xác nhận xóa',
+        text: 'Bạn có chắc chắn muốn xóa tác giả này?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#198754',
+        confirmButtonText: 'Xác nhận',
+        cancelButtonText: 'Hủy'
+    });
+
+    if (!result.isConfirmed) return;
 
     try {
         await AuthorService.deleteAuthor(id);
-        authors.value = authors.value.filter(author => author._id !== id);
+        fetchAuthors();
     } catch (error) {
         console.error('Lỗi khi xóa tác giả:', error);
     }

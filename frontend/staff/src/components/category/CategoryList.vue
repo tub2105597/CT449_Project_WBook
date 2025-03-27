@@ -59,6 +59,7 @@
 import { ref, computed, onBeforeMount } from 'vue';
 import { useRoute } from 'vue-router';
 import CategoryService from '@/services/category.service';
+import Swal from 'sweetalert2';
 
 const route = useRoute();
 const categories = ref([]);
@@ -81,11 +82,21 @@ async function fetchCategories() {
 
 // Xóa thể loại
 async function deleteCategory(id) {
-    if (!confirm('Bạn có chắc muốn xóa thể loại này?')) return;
+    const result = await Swal.fire({
+        title: 'Xác nhận xóa',
+        text: 'Bạn có chắc muốn xóa thể loại này?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Xác nhận',
+        cancelButtonText: 'Hủy',
+        confirmButtonColor: '#198754',
+    });
+
+    if (!result.isConfirmed) return;
 
     try {
         await CategoryService.deleteCategory(id);
-        categories.value = categories.value.filter(category => category._id !== id);
+        await fetchCategories();
     } catch (error) {
         console.error('Lỗi khi xóa thể loại:', error);
     }

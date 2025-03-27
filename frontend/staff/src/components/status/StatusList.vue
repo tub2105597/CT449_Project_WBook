@@ -63,9 +63,9 @@
                             </span>
                         </td>
                         <td class="d-flex gap-1 align-items-center justify-content-center">
-                            <button class="btn btn-sm btn-outline-info" @click="extendStatus(status)">
+                            <!-- <button class="btn btn-sm btn-outline-info" @click="extendStatus(status)">
                                 <i class="fas fa-clock"></i>
-                            </button>
+                            </button> -->
                             <router-link :to="{ name: 'status-edit', params: { id: status._id } }" class="btn btn-sm btn-outline-warning">
                                 <i class="fas fa-edit"></i>
                             </router-link>
@@ -109,19 +109,30 @@ async function fetchStatuses() {
 async function extendStatus(status) {
     try {
         status.ngayMuon = new Date(status.ngayMuon);
-        status.ngayTra = status.ngayMuon.getDate() + 14;
+        status.ngayTra = new Date(status.ngayMuon);
+        status.ngayTra.setDate(status.ngayMuon.getDate() + 14);
 
-        if (status.ngayTra < new Date()) {
+        if (Date.now() > status.ngayMuon.getTime() + 7 * 24 * 60 * 60 * 1000 && !status.giaHan) {
             await Swal.fire({
                 icon: 'error',
                 title: 'Không thể gia hạn mượn sách',
                 text: 'Sách đã quá hạn trả, không thể gia hạn mượn sách!'
             });
+            return;
         }
 
-        const response = await StatusService.updateStatus(status._id, { ngayTra: status.ngayMuon.setDate(status.ngayMuon.getDate() + 14), giaHan: true });
+        const response = await StatusService.updateStatus(status._id, {
+            giaHan: true
+        });
+
         if (response.status === 'success') {
-            await fetchStatuses();
+            await Swal.fire({
+                icon: 'success',
+                title: 'Gia hạn mượn sách thành công',
+                showConfirmButton: false,
+                timer: 1500
+            });
+            loading.value = true;
         } else {
             console.log('Lỗi khi gia hạn mượn sách:', response.message);
         }
@@ -130,6 +141,7 @@ async function extendStatus(status) {
     }
 }
 
+
 async function deleteStatus(id) {
     const result = await Swal.fire({
         title: 'Xác nhận xóa',
@@ -137,7 +149,8 @@ async function deleteStatus(id) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Xóa',
-        cancelButtonText: 'Hủy'
+        cancelButtonText: 'Hủy',
+        confirmButtonColor: '#198754',
     });
 
     if (result.isConfirmed) {
